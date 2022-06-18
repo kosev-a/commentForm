@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label for="message">
+        <input id="message" placeholder="Введите текст">
+        <button id="btn">Отправить</button>
+    </label>
+    <ul id="list"></ul>
+
+    <script>
+        const mess = document.querySelector('#message');
+        const btn = document.querySelector('#btn');
+        const list = document.querySelector('#list');
+
+        btn.addEventListener('click', function () {
+            const newItem = document.createElement('li');
+            newItem.textContent = mess.value;
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'удалить';
+            delBtn.addEventListener('click', function () {
+                newItem.remove();
+            });
+
+            list.append(newItem);
+            newItem.append(delBtn);
+
+            mess.value = "";
+
+        });
+    </script>
+
+</body>
+</html>
